@@ -11,7 +11,8 @@ interface MatchDetailsScoreCardTabProps {
 }
 
 export const MatchDetailsScoreCardTab: React.FC<MatchDetailsScoreCardTabProps> = (props) => {
-  const { data: matchScoreData, error, isLoading } = useSWR(props.matchId?.toString(), getMatchScorecardAPI);
+  const { data: matchScoreData, error, isLoading } = useSWR(props.matchId?.toString(), 
+  getMatchScorecardAPI);
 
   const hasScoreData = Array.isArray(matchScoreData?.data) && matchScoreData.data.length > 0;
   return (
@@ -20,10 +21,7 @@ export const MatchDetailsScoreCardTab: React.FC<MatchDetailsScoreCardTabProps> =
       {isLoading ? (
         <Loading />
       ) : hasScoreData ? (
-        <MatchScoreCard
-          matchScoreData={matchScoreData?.data}
-          matchData={{ state: matchScoreData?.data?.[0]?.state ?? "" }}
-        />
+        <MatchScoreCard matchData={matchScoreData?.data} />
       ) : (
         <div className="flex flex-col items-center justify-center w-full h-full text-center py-12 mb-10">
           <img src="/assets/imgs/bg/soon.png" alt="Coming Soon" className="w-1/2 max-w-xs opacity-80" />

@@ -8,7 +8,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 
 interface MatchScoreCardProps {
-  matchScoreData: any;
+  // matchScoreData: any;
   matchData: {
     state: string;
   };
