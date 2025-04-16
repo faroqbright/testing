@@ -11,6 +11,7 @@ interface MatchScoreCardProps {
   // matchScoreData: any;
   matchData: {
     state: string;
+    scoreCard?: any;
   };
 }
 
